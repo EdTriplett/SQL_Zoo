@@ -103,7 +103,7 @@ AND yr BETWEEN 1980 AND 1989
 
 6)
 SELECT * FROM nobel
- WHERE winner IN ('Theodore Roosevelt', 
+ WHERE winner IN ('Theodore Roosevelt',
 'Woodrow Wilson',
 'Jimmy Carter',
 'Barack Obama')
@@ -132,6 +132,38 @@ SELECT * FROM nobel
  WHERE winner LIKE 'Peter Gr_nberg'
 
 12)
+SELECT *
+FROM nobel
+WHERE winner = 'Eugene O''Neill'
 
+13)
+SELECT winner, yr, subject
+FROM nobel
+WHERE winner LIKE 'Sir %'
+ORDER BY yr DESC, winner
 
+14)
+SELECT winner, subject
+  FROM nobel
+ WHERE yr=1984
+ ORDER BY subject IN ('Physics','Chemistry'), subject, winner
 
+ 15)
+ SELECT matchid, player
+ FROM goal
+  WHERE teamid = 'GER'
+
+16)
+SELECT id,stadium,team1,team2
+  FROM game
+ WHERE id = 1012
+
+17)
+SELECT player, teamid, stadium, mdate
+  FROM game JOIN goal ON (id=matchid)
+WHERE teamid = 'GER'
+
+18)
+SELECT team1, team2, player
+  FROM game JOIN goal ON (id=matchid)
+WHERE player LIKE 'Mario%' 
