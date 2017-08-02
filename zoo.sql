@@ -49,3 +49,89 @@ FROM world
 WHERE gdp >= 1000000000000
 
 ---select world tut
+
+11)
+SELECT name, capital
+  FROM world
+ WHERE  LENGTH(name) = LENGTH(capital)
+
+ 12)
+SELECT name, capital
+FROM world
+WHERE LEFT(name,1) = LEFT(capital,1)
+AND name != capital
+
+13)
+SELECT name
+   FROM world
+WHERE name NOT LIKE '% %'
+  AND name LIKE '%a%'
+AND name LIKE '%e%'
+AND name LIKE '%i%'
+AND name LIKE '%o%'
+AND name LIKE '%u%'
+
+NOBEL
+1)
+SELECT yr, subject, winner
+  FROM nobel
+ WHERE yr = 1950
+
+
+2)
+SELECT winner
+  FROM nobel
+ WHERE yr = 1962
+   AND subject = 'LIterature'
+
+3)
+SELECT yr, subject
+FROM nobel
+WHERE winner LIKE '%Einstein%'
+
+4)
+SELECT winner
+FROM nobel
+WHERE subject ='Peace'
+AND yr >1999
+
+5)
+SELECT *
+FROM nobel
+WHERE subject ='Literature'
+AND yr BETWEEN 1980 AND 1989
+
+6)
+SELECT * FROM nobel
+ WHERE winner IN ('Theodore Roosevelt', 
+'Woodrow Wilson',
+'Jimmy Carter',
+'Barack Obama')
+
+7)
+SELECT winner FROM nobel
+ WHERE LEFT(winner, 4) = 'John'
+
+8)
+SELECT * FROM nobel
+ WHERE (subject = 'Physics' AND yr = 1980)
+  OR (subject = 'Chemistry' AND yr = 1984)
+
+9)
+SELECT * FROM nobel
+ WHERE yr = 1980
+  AND subject NOT IN ('Chemistry', 'Medicine')
+
+10)
+SELECT * FROM nobel
+ WHERE (yr <1910 AND subject = 'Medicine')
+  OR (yr >2003 AND subject = 'Literature')
+
+11)
+SELECT * FROM nobel
+ WHERE winner LIKE 'Peter Gr_nberg'
+
+12)
+
+
+
