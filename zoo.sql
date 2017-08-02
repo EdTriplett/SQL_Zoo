@@ -148,22 +148,58 @@ SELECT winner, subject
  WHERE yr=1984
  ORDER BY subject IN ('Physics','Chemistry'), subject, winner
 
- 15)
+
+
+JOIN - UEFA
+1)
  SELECT matchid, player
  FROM goal
   WHERE teamid = 'GER'
 
-16)
+2)
 SELECT id,stadium,team1,team2
   FROM game
  WHERE id = 1012
 
-17)
+3)
 SELECT player, teamid, stadium, mdate
   FROM game JOIN goal ON (id=matchid)
 WHERE teamid = 'GER'
 
-18)
+4)
 SELECT team1, team2, player
   FROM game JOIN goal ON (id=matchid)
 WHERE player LIKE 'Mario%' 
+
+5)
+SELECT player, teamid, coach, gtime
+  FROM goal JOIN eteam on teamid=id 
+ WHERE gtime<=10
+
+6)
+SELECT mdate, teamname
+  FROM game JOIN eteam ON (team1=eteam.id) 
+ WHERE eteam.coach = 'Fernando Santos'
+
+7)
+SELECT player
+  FROM game JOIN goal ON (game.id=matchid) 
+ WHERE stadium = 'National Stadium, Warsaw'
+
+ 8)
+SELECT DISTINCT player
+  FROM game JOIN goal ON matchid = id 
+    WHERE (team1='GER' OR team2='GER') AND goal.teamid != 'GER' 
+
+9)
+SELECT teamname, COUNT(*) AS goalCount
+  FROM eteam JOIN goal ON id=teamid
+GROUP BY teamname
+ ORDER BY teamname
+
+10)
+
+
+
+
+
